@@ -1,8 +1,6 @@
 /* @flow */
 
-((arguments) => {
-    // console.log('arguments');
-
+((launchArgs) => {
     require('./lib/main')
         .exec()
         .then(output => console.log(output));
