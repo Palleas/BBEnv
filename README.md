@@ -2,6 +2,34 @@
 
 Nerd-snipped attempt at helping running [Buddybuild custom build steps](http://docs.buddybuild.com/docs/custom-prebuild-and-postbuild-steps) locally.
 
+## Context 
+
+Buddybuild is a smart service that does a lot for you. That said, there are some situation where you want to [customize the build process](https://www.buddybuild.com/blog/customizing-the-build-process). Using [custom build steps](docs.buddybuild.com/docs/custom-prebuild-and-postbuild-steps), you can execute shell scripts after cloning, before and after the build... I made this tool to let you run your custom builds steps in a close-to-production environment by exposing relevant environmment variables. 
+
+| Environment variable          | Status                                                              |
+| ----------------------------- | ------------------------------------------------------------------- |
+| BUDDYBUILD_BUILD_NUMBER       | Takes the latest build number and adds 1.                           |
+| BUDDYBUILD_BUILD_ID           | Generates a random UUID.                                            |
+| BUDDYBUILD_BRANCH             | Takes the branch you're currently on.                               |
+| BUDDYBUILD_WORKSPACE          | Takes the folder you're currently on.                               |
+| BUDDYBUILD_TRIGGERED_BY       | Always "ui_triggered" for now.                                      |
+| BUDDYBUILD_IPA_PATH           | Download the IPA from the latest succesful build and use this path. |
+| BUDDYBUILD_APP_STORE_IPA_PATH | Download the IPA from the latest succesful build and use this path. |
+| BUDDYBUILD_BASE_BRANCH        | Not supported yet, always empty.                                    |
+| BUDDYBUILD_PULL_REQUEST       | Not supported yet, always empty.                                    |
+| BUDDYBUILD_APP_ID             | Not supported yet, always empty.                                    |
+| BUDDYBUILD_REPO_SLUG          | Not supported yet, always empty.                                    |
+| BUDDYBUILD_SECURE_FILES       | Not supported yet, always empty.                                    |
+| BUDDYBUILD_SCHEME             | Not supported yet, always empty.                                    |
+| BUDDYBUILD_TEST_DIR           | Not supported yet, always empty.                                    |
+| BUDDYBUILD_VARIANTS           | Not supported yet, always empty.                                    |
+| ANDROID_HOME                  | Not supported yet, always empty.                                    |
+| ANDROID_NDK_HOME              | Not supported yet, always empty.                                    |
+
+## Why
+
+50% because it's fun, 50% because I wanted to show the stuff you can do using our [public API](http://docs.buddybuild.com/docs/api-developer-guide).
+
 ## Installation
 
 (Will probably be published on npm or whatever at some point.)
