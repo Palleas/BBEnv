@@ -12,7 +12,7 @@ Buddybuild is a smart service that does a lot for you. That said, there are some
 /usr/libexec/PlistBuddy -c "Add APP_BRANCH String $BUDDYBUILD_BRANCH" "Info.plist"
 ```
 
-If you want to try this script locally, you will need to define the `BUDDYBUILD_BRANCH` environment variable. This is tedious and there are quite a lot of environment variable you may need. I made this tool to let you run your custom builds steps in a close-to-production environment by exposing **relevant** environmment variables. 
+If you want to try this script locally before pushing it, you will need to define the `BUDDYBUILD_BRANCH` environment variable. This is tedious and there are quite a lot of environment variable you may need. I made this tool to let you run your custom builds steps in a close-to-production environment by exposing **relevant** environmment variables. 
 
 ## List of environment variables
 
