@@ -45,7 +45,7 @@ If you want to try this script locally before pushing it, you will need to defin
 (Will probably be published on npm or whatever at some point.)
 
 1. Clone the repo
-2. `npm install`
+2. `yarn install`
 
 ## Usage
 
