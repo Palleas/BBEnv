@@ -4,9 +4,19 @@ Nerd-snipped attempt at helping running [Buddybuild custom build steps](http://d
 
 ## Context 
 
-Buddybuild is a smart service that does a lot for you. That said, there are some situation where you want to [customize the build process](https://www.buddybuild.com/blog/customizing-the-build-process). Using [custom build steps](docs.buddybuild.com/docs/custom-prebuild-and-postbuild-steps), you can execute shell scripts after cloning, before and after the build... I made this tool to let you run your custom builds steps in a close-to-production environment by exposing relevant environmment variables. 
+Buddybuild is a smart service that does a lot for you. That said, there are some situation where you want to [customize the build process](https://www.buddybuild.com/blog/customizing-the-build-process). Using [custom build steps](docs.buddybuild.com/docs/custom-prebuild-and-postbuild-steps), you can execute shell scripts after cloning, before and after the build... Here is an example from our blog post about this: 
 
-| Environment variable          | Status                                                              |
+```shell
+#!/usr/bin/env bash
+# Adding the buddybuild branch to a PList
+/usr/libexec/PlistBuddy -c "Add APP_BRANCH String $BUDDYBUILD_BRANCH" "Info.plist"
+```
+
+If you want to try this script locally, you will need to define the `BUDDYBUILD_BRANCH` environment variable. This is tedious and there are quite a lot of environment variable you may need. I made this tool to let you run your custom builds steps in a close-to-production environment by exposing **relevant** environmment variables. 
+
+## List of environment variables
+
+| Environment variable          | Comment                                                             |
 | ----------------------------- | ------------------------------------------------------------------- |
 | BUDDYBUILD_BUILD_NUMBER       | Takes the latest build number and adds 1.                           |
 | BUDDYBUILD_BUILD_ID           | Generates a random UUID.                                            |
