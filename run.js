@@ -1,4 +1,4 @@
-/* @flow */
+#!/usr/bin/env node
 
 const _ = require('lodash');
 

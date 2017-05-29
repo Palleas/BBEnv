@@ -1,10 +1,13 @@
 {
   "name": "bbenv",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Test your custom build step locally",
   "main": "lib/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+      "bbenv": "./run.js"
   },
   "author": "Romain Pouclet",
   "license": "MIT",
