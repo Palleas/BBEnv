@@ -1,10 +1,12 @@
 # BBEnv
 
+[![npm version](https://badge.fury.io/js/bbenv.svg)](https://badge.fury.io/js/bbenv)
+
 Nerd-snipped attempt at helping running [Buddybuild custom build steps](http://docs.buddybuild.com/docs/custom-prebuild-and-postbuild-steps) locally.
 
-## Context 
+## Context
 
-Buddybuild is a smart service that does a lot for you. That said, there are some situation where you want to [customize the build process](https://www.buddybuild.com/blog/customizing-the-build-process). Using [custom build steps](docs.buddybuild.com/docs/custom-prebuild-and-postbuild-steps), you can execute shell scripts after cloning, before and after the build... Here is an example from our blog post about this: 
+Buddybuild is a smart service that does a lot for you. That said, there are some situation where you want to [customize the build process](https://www.buddybuild.com/blog/customizing-the-build-process). Using [custom build steps](docs.buddybuild.com/docs/custom-prebuild-and-postbuild-steps), you can execute shell scripts after cloning, before and after the build... Here is an example from our blog post about this:
 
 ```shell
 #!/usr/bin/env bash
@@ -12,7 +14,7 @@ Buddybuild is a smart service that does a lot for you. That said, there are some
 /usr/libexec/PlistBuddy -c "Add APP_BRANCH String $BUDDYBUILD_BRANCH" "Info.plist"
 ```
 
-If you want to try this script locally before pushing it, you will need to define the `BUDDYBUILD_BRANCH` environment variable. This is tedious and there are quite a lot of environment variable you may need. I made this tool to let you run your custom builds steps in a close-to-production environment by exposing **relevant** environmment variables. 
+If you want to try this script locally before pushing it, you will need to define the `BUDDYBUILD_BRANCH` environment variable. This is tedious and there are quite a lot of environment variable you may need. I made this tool to let you run your custom builds steps in a close-to-production environment by exposing **relevant** environmment variables.
 
 ## List of environment variables
 
@@ -42,16 +44,20 @@ If you want to try this script locally before pushing it, you will need to defin
 
 ## Installation
 
-(Will probably be published on npm or whatever at some point.)
-
-1. Clone the repo
-2. `yarn install`
+`yarn global add bbenv` (or `npm install -g bbenv` I guess)
 
 ## Usage
 
 ```shell
-node run.js buddybuild_postclone.js
+bbenv buddybuild_postclone.js
 ```
+
+## Contributing to bbenv
+
+1. Clone the repo
+2. run `make bootstrap`
+
+Run tests with [bats](https://github.com/sstephenson/bats) using `make test`
 
 ## License
 
