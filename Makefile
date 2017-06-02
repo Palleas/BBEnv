@@ -8,6 +8,7 @@ bootstrap-ci:
 	sudo add-apt-repository ppa:duggan/bats -y
 	sudo apt-get update -q
 	sudo apt-get install -y bats
+	yarn install
 
 test:
 	bats tests
