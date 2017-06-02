@@ -1,7 +1,7 @@
 bootstrap:
 	@echo "Install bats, yarn and node packages if needed"
 	@which bats || brew install bats
-	@brew install yarn || true
+	@which yarn || brew install yarn
 	@yarn install
 
 test:
