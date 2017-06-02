@@ -25,7 +25,7 @@ module.exports.ipaPath = () => {};
 
 const fetch = (endpoint, token) => {
     return rp.get(`https://api.buddybuild.com/v1/${endpoint}`, {
-        'auth': { 'bearer': token }
+        'auth': { 'bearer': token },
     })
     .then(response => JSON.parse(response));
 };
@@ -36,8 +36,8 @@ module.exports.client = (token) => {
             return fetch("apps", token);
         },
 
-        latestBuild: (appId) => {
-            return fetch(`apps/${appId}/build/latest`);
+        latestBuild: appId => {
+            return fetch(`apps/${appId}/build/latest`, token);
         }
     };
 };
