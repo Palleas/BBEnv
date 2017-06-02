@@ -1,38 +1,38 @@
 {
-    "name": "bbenv",
-    "version": "0.0.2",
-    "description": "Test your custom build step locally",
-    "main": "lib/main.js",
-    "scripts": {
-        "build": "babel -d dest src",
-        "test": "mocha tests/**/*.js"
-    },
-    "babel": {
-        "plugins": [
-            "transform-flow-strip-types"
-        ]
-    },
-    "bin": {
-        "bbenv": "dest/run.js"
-    },
-    "author": "Romain Pouclet",
-    "license": "MIT",
-    "devDependencies": {
-        "babel-cli": "^6.24.1",
-        "babel-plugin-transform-flow-strip-types": "^6.22.0",
-        "expect": "^1.20.2",
-        "flow-bin": "^0.46.0",
-        "flow-typed": "^2.1.2",
-        "mocha": "^3.4.2",
-        "nock": "^9.0.13"
-    },
-    "dependencies": {
-        "bluebird": "^3.5.0",
-        "keychain": "^1.3.0",
-        "lodash": "^4.17.4",
-        "request": "^2.81.0",
-        "request-promise-any": "^1.0.4",
-        "shelljs": "^0.7.7",
-        "uuid": "^3.0.1"
-    }
+  "name": "bbenv",
+  "version": "0.0.3",
+  "description": "Test your custom build step locally",
+  "main": "lib/main.js",
+  "scripts": {
+    "build": "babel -d dest src",
+    "test": "mocha tests/**/*.js"
+  },
+  "babel": {
+    "plugins": [
+      "transform-flow-strip-types"
+    ]
+  },
+  "bin": {
+    "bbenv": "dest/run.js"
+  },
+  "author": "Romain Pouclet",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "expect": "^1.20.2",
+    "flow-bin": "^0.46.0",
+    "flow-typed": "^2.1.2",
+    "mocha": "^3.4.2",
+    "nock": "^9.0.13"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "keychain": "^1.3.0",
+    "lodash": "^4.17.4",
+    "request": "^2.81.0",
+    "request-promise-any": "^1.0.4",
+    "shelljs": "^0.7.7",
+    "uuid": "^3.0.1"
+  }
 }
