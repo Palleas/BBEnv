@@ -1,6 +1,6 @@
-osx_image: xcode8.3
 language: node_js
+sudo: required
 node_js:
-    - "7"
-install: make bootstrap
+    - '7'
+install: make bootstrap-ci
 script: make test
