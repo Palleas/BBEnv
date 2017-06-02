@@ -4,7 +4,7 @@
     "description": "Test your custom build step locally",
     "main": "lib/main.js",
     "scripts": {
-        "build": "flow-remove-types run.js lib/* --out-dir dest/",
+        "build": "babel -d dest src",
         "test": "mocha tests/**/*.js"
     },
     "babel": {
