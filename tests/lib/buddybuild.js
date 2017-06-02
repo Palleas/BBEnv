@@ -18,9 +18,6 @@ nock('https://api.buddybuild.com')
 .reply(200, bbmocks.latestBuild);
 
 describe("Buddybuild", () => {
-    // before(() => {
-    // });
-
     it("fetches apps", (done) => {
         buddybuild.client("my-token").apps()
         .then(apps => {
