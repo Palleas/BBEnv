@@ -11,4 +11,5 @@ test:
 publish:
 	-rm -Rf dest
 	yarn run build
+	npm version patch -m "Release %s"
 	npm publish
