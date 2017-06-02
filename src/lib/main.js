@@ -12,7 +12,7 @@ const childProcess = Promise.promisifyAll(require('child_process'));
 const onboard = require('./onboarding');
 const r = require('request');
 
-const register = (token, app) => {
+const register = (token: string, app: Object) => {
     const client = BB.client(token);
 
     const nextBuildNumber = () => {

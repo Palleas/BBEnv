@@ -51,7 +51,7 @@ const requestTokenIfNeeded = () => {
     });
 };
 
-const askForApp = (list) => {
+const askForApp = (list: Array<Object>) => {
     return new Promise((resolve, reject) => {
         const rl = readline.createInterface({
             input: process.stdin,
