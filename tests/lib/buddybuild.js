@@ -29,7 +29,7 @@ describe("Buddybuild", () => {
             expect(apps[1].app_name).toEqual("2048 Android App");
             done();
         })
-        .catch(err => { throw err; done(); });
+        .catch(err => { done(); throw err; });
     });
 
     it("fetches the latest build", (done) => {
@@ -38,6 +38,6 @@ describe("Buddybuild", () => {
             expect(build._id).toEqual("58b899061baced0100616172");
             done();
         })
-        .catch(err => { throw err; done(); });
+        .catch(err => { done(); throw err; });
     });
 });
