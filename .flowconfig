@@ -1,4 +1,5 @@
 [ignore]
+<PROJECT_ROOT>/node_modules/nock/node_modules/changelog/examples/node.json
 
 [include]
 
