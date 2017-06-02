@@ -28,8 +28,6 @@ const askForToken = () => {
         });
 
         rl.question('Please enter your Buddybuild token:', (token) => {
-            console.log(token);
-
             rl.close();
 
             keychain.setPassword(_.assignIn({}, manifest, {password: token}), (err) => {
@@ -79,8 +77,7 @@ module.exports = () => {
         return client(token).apps()
         .then(apps => askForApp(apps))
         .then(app => {
-            console.log("Selected app " + app["app_name"]);
-            return app;
+            return [token, app];
         });
     });
 }

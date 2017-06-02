@@ -10,16 +10,38 @@ const path = require('path');
 const fs = Promise.promisifyAll(require('fs'));
 const childProcess = Promise.promisifyAll(require('child_process'));
 const onboard = require('./onboarding');
+const r = require('request');
 
-const register = () => {
+const register = (token, app) => {
+    const client = BB.client(token);
+
+    const nextBuildNumber = () => {
+        return client.latestBuild(app._id)
+        .then(build => _.get(build, 'build_number', 1));
+    };
+
+    const pathToLatestIpa = () => {
+        return client.latestBuild(app._id)
+        .then(payload => _.get(payload, 'links.download.0.url'))
+        .then(url => {
+            return new Promise((resolve, reject) => {
+                r(url)
+                .pipe(fs.createWriteStream('app.ipa'))
+                .on('finish', () => {
+                    resolve('app.ipa');
+                });
+            })
+        });
+    };
+
     const BuddybuildEnvVars = {
-        "BUDDYBUILD_BUILD_NUMBER": BB.buildNumber(),
+        "BUDDYBUILD_BUILD_NUMBER": nextBuildNumber(),
         "BUDDYBUILD_BUILD_ID": uuidV4(),
         "BUDDYBUILD_BRANCH": git.currentBranch(),
         "BUDDYBUILD_WORKSPACE": shell.pwd(),
         "BUDDYBUILD_TRIGGERED_BY": "ui_triggered",
-        "BUDDYBUILD_IPA_PATH": BB.ipaPath(),
-        "BUDDYBUILD_APP_STORE_IPA_PATH": BB.ipaPath(),
+        "BUDDYBUILD_IPA_PATH": pathToLatestIpa(),
+        "BUDDYBUILD_APP_STORE_IPA_PATH": pathToLatestIpa(),
         // Not supported for now
         "BUDDYBUILD_BASE_BRANCH": "",
         "BUDDYBUILD_PULL_REQUEST": "",
@@ -54,7 +76,7 @@ const checkScript = (script) => {
 
 module.exports.exec = (scripts: Array<string>) => {
     return onboard()
-    .then(() => register())
+    .then(([token, app]) => register(token, app))
     .then(() => {
         return Promise.map(scripts, (script) => {
             return checkScript(script)
