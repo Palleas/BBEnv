@@ -7,3 +7,8 @@ bootstrap:
 test:
 	bats tests
 	yarn run test
+
+publish:
+	-rm -Rf dest
+	yarn run build
+	npm publish
