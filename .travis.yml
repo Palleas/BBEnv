@@ -1,8 +1,5 @@
-language: objective-c
-before_install:
-    - brew update
-install:
-    - brew install node
-    - brew install yarn
-    - make bootstrap
+language: node_js
+node_js:
+    - '7'
+install: make bootstrap-ci
 script: make test
