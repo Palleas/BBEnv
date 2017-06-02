@@ -5,7 +5,7 @@
   "main": "lib/main.js",
   "scripts": {
     "build": "babel -d dest src",
-    "test": "mocha tests/**/*.js"
+    "test": "mocha -r flow-remove-types/register tests/**/*.js"
   },
   "babel": {
     "plugins": [
@@ -22,6 +22,7 @@
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "expect": "^1.20.2",
     "flow-bin": "^0.46.0",
+    "flow-remove-types": "^1.2.1",
     "flow-typed": "^2.1.2",
     "mocha": "^3.4.2",
     "nock": "^9.0.13"
