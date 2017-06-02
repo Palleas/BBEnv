@@ -4,7 +4,7 @@
 
 [![Build Status](https://travis-ci.org/Palleas/BBEnv.svg?branch=master)](https://travis-ci.org/Palleas/BBEnv)
 
-Nerd-snipped attempt at helping running [Buddybuild custom build steps](http://docs.buddybuild.com/docs/custom-prebuild-and-postbuild-steps) locally.
+Making running [Buddybuild custom build steps](http://docs.buddybuild.com/docs/custom-prebuild-and-postbuild-steps) locally easier.
 
 ## Context
 
